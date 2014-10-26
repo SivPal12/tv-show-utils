@@ -1,6 +1,7 @@
 package no.nith.sivpal12.tv.show.utils;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -34,6 +35,14 @@ public class TvLibraryTest {
         File mockLib = mock(File.class);
         when(mockLib.isDirectory()).thenReturn(false);
         TvLibrary.create(mockLib);
+    }
+
+    @Test
+    public void create_DirectoryIn_Ok() throws Exception {
+        File mockLib = mock(File.class);
+        when(mockLib.isDirectory()).thenReturn(true);
+        final TvLibrary library = TvLibrary.create(mockLib);
+        assertNotNull(library);
     }
 
     @Test
