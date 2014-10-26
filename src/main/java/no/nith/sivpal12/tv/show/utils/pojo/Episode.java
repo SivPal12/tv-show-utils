@@ -12,7 +12,7 @@ public class Episode {
     private final String showName, episodeName;
     private final int seasonNumber, episodeNumber;
 
-    public Episode(String showName, int seasonNumber, int episodeNumber,
+    private Episode(String showName, int seasonNumber, int episodeNumber,
             String episodeName) {
         this.showName = showName;
         this.seasonNumber = seasonNumber;
@@ -51,12 +51,10 @@ public class Episode {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result
-                + ((episodeName == null) ? 0 : episodeName.hashCode());
+        result = prime * result + episodeName.hashCode();
         result = prime * result + episodeNumber;
         result = prime * result + seasonNumber;
-        result = prime * result
-                + ((showName == null) ? 0 : showName.hashCode());
+        result = prime * result + showName.hashCode();
         return result;
     }
 
