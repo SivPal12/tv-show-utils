@@ -6,7 +6,7 @@
     <packaging>jar</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <name>tv-show-utils</name>
-    <url>http://maven.apache.org</url>
+
     <dependencies>
         <!-- TEST -->
         <dependency>
@@ -42,4 +42,15 @@
             </plugin>
         </plugins>
     </build>
+    <developers>
+        <developer>
+            <id>sivpal12</id>
+            <email>paal@nith.no</email>
+            <name>Pal M Sivertsen</name>
+            <roles>
+                <role>Developer</role>
+            </roles>
+            <timezone>2</timezone>
+        </developer>
+    </developers>
 </project>
