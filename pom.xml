@@ -40,6 +40,23 @@
                     <target>1.7</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>external.atlassian.jgitflow</groupId>
+                <artifactId>jgitflow-maven-plugin</artifactId>
+                <version>1.0-m4.3</version>
+                <configuration>
+                    <flowInitContext>
+                        <masterBranchName>master</masterBranchName>
+                        <developBranchName>develop</developBranchName>
+                        <featureBranchPrefix>feature/</featureBranchPrefix>
+                        <releaseBranchPrefix>release/</releaseBranchPrefix>
+                        <hotfixBranchPrefix>hotfix/</hotfixBranchPrefix>
+                        <versionTagPrefix>${project.artifactId}-</versionTagPrefix>
+                    </flowInitContext>
+                    <scmCommentPrefix xml:space="preserve">[jgitflow] </scmCommentPrefix>
+                    <noDeploy>true</noDeploy>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
     <developers>
