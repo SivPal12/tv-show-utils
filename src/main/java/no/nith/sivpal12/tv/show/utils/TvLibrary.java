@@ -30,6 +30,11 @@ public class TvLibrary {
         return new TvLibrary(libraryRootFolder);
     }
 
+    /**
+     * Scans the library root folder for tv shows
+     *
+     * @return A list of episodes found in the library root folder
+     */
     public List<Episode> scanForShows() {
         List<Episode> shows = new ArrayList<Episode>();
 
