@@ -2,7 +2,9 @@ package no.nith.sivpal12.tv.show.utils.pojo;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
+
 import no.nith.sivpal12.tv.show.utils.exeptions.TsuSeasonNotFoundException;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -46,9 +48,13 @@ public class ShowInfoTest {
 
     @Test(expected = TsuSeasonNotFoundException.class)
     public void getNumberOfEpisodes_SeasonNotInList_ThrowsTsuSeasonNotFoundException() {
+        List<ShowSeason> localSeasons = new ArrayList<ShowSeason>();
+        localSeasons.add(new ShowSeason(1, 1));
+
         Whitebox.setInternalState(objectUnderTest, SHOW_INFO_FIELD_SEASONS,
-                new ArrayList<ShowSeason>());
+                localSeasons);
         objectUnderTest.getNumberOfEpisodes(10);
     }
+
 
 }
