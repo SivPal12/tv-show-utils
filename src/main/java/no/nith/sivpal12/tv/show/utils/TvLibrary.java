@@ -4,15 +4,19 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import no.nith.sivpal12.tv.show.utils.domain.MissingEpisodes;
 import no.nith.sivpal12.tv.show.utils.exeptions.TsuLibraryRootPathNotAFolderException;
 import no.nith.sivpal12.tv.show.utils.pojo.Episode;
+import no.nith.sivpal12.tv.show.utils.services.TvBaseService;
 
 public class TvLibrary {
 
     private final File libraryRootFolder;
+    private final TvBaseService tvBaseService;
 
     private TvLibrary(File libraryRootFolder) {
         this.libraryRootFolder = libraryRootFolder;
+        tvBaseService = new TvBaseService();
     }
 
     /**
@@ -48,6 +52,22 @@ public class TvLibrary {
         }
 
         return shows;
+    }
+
+    public List<Episode> findMissingEpisodes(
+            final List<Episode> episodesInLibrary) {
+        if (episodesInLibrary == null || episodesInLibrary.isEmpty()) {
+            return new ArrayList<Episode>();
+        }
+
+        final MissingEpisodes missingEpisodes = tvBaseService
+                .createMissingEpisode();
+
+        for (Episode episode : episodesInLibrary) {
+            missingEpisodes.remove(episode);
+        }
+
+        return missingEpisodes.getMissingEpisodes();
     }
 
     private List<File> getAllFilesInFolder(File folder) {

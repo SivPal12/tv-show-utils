@@ -6,4 +6,8 @@ public abstract class TsuException extends RuntimeException {
         super(message);
     }
 
+    public TsuException(String message, Throwable cause) {
+        super(message + " Nested message: " + cause.getMessage(), cause);
+    }
+
 }

@@ -8,6 +8,12 @@
     <name>tv-show-utils</name>
 
     <dependencies>
+        <!-- FREEBASE -->
+        <dependency>
+            <groupId>com.google.apis</groupId>
+            <artifactId>google-api-services-freebase</artifactId>
+            <version>v1-rev61-1.19.0</version>
+        </dependency>
         <!-- TEST -->
         <dependency>
             <groupId>junit</groupId>
